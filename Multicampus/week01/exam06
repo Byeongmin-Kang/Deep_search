@@ -1,0 +1,128 @@
+#리스트연습
+
+temps = [1,2,3,4,5,6]
+length = len(temps)
+print(length)
+
+
+for i in temps:
+    print(i)
+   
+    
+    
+    
+values = list(range(10))
+print(values)
+
+
+
+
+str = 'Hello'
+strlist = list(str)
+print(strlist)
+
+for c in 'Hello':
+    print(c)
+    
+
+
+
+    
+numbers = 'list'
+for item in numbers:
+    print(item)
+
+
+
+
+
+
+#데이터타입 차이/변경   
+numbers = '123456'
+sum = ''
+for item in numbers:
+    sum = sum + item
+print(sum) 
+
+
+numbers = '123456'
+sum = 0
+for item in numbers:
+    sum = sum + int(item)
+print(sum) 
+    
+
+
+
+
+
+
+numbers = [2,8,9,1,6]
+for i in range(len(numbers)):
+    print(i)
+    
+    
+numbers = [2,8,9,1,6]
+for i in range(len(numbers)):
+    print(numbers[i])
+
+
+
+
+# list수정 - 오름차순
+numbers = [2,8,9,1,6]
+for i in range(len(numbers)-1):
+    for j in range(i+1,len(numbers)):
+
+        if numbers[i] > numbers[j]:
+            temp = numbers[i]
+            numbers[i] = numbers[j]
+            numbers[j] = temp
+
+print(numbers)
+
+
+
+
+
+
+
+#모듈 - 난수생성
+import random
+rnd = random.random()
+print(rnd)
+
+
+import random
+rnd = random.random()
+value = (rnd*45)+1
+print(int(value))
+
+
+import random
+
+for i in range(6):
+    rnd = random.random()
+    value = (rnd*45*100//100)+1
+    print(int(value))
+    
+
+    
+#비어있는 list에 값 집어넣기
+import random
+balls = []
+
+while True:
+    rnd = random.random()
+    value = (rnd*45)+1
+   
+    if value in balls:
+        print('중복 %d'%value)
+        continue
+    balls.append(int(value))
+    
+    if len(balls) == 6:
+        break
+            
+    
+print(balls)
