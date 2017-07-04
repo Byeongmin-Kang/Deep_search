@@ -1,0 +1,139 @@
+import time
+now = time.localtime()
+print(now.tm_year)
+
+import calendar
+result = calendar.monthrange(2017,6)
+print(result) #(3,30) 30일까지 있고, 비어있는 인덱스가 3 -> 0,1,2,3 -> 4개에용
+month = calendar.month(2017,7)
+print(month)
+print(result[1])
+
+import calendar
+def viewMonth(year,_month):
+    #result = calendar.monthrange(2017,_month) 2017이 hardcoding
+    result = calendar.monthrange(year,_month)
+    #spaces = [0,3,3,6,1,4,5,2,5,0,3,5]
+    #lastDays = [31,28,31,30,31,30,31,31,30,31,30,31]
+    #space = spaces[_month-1] #사용자 입장에서 봐야합니다!! 보정 하나가 퀄리티 결정
+    space = result[0]
+    month = _month
+    lastDay = result[1]
+    #lastDay = lastDays[_month-1] #0부터 인덱스가 시작하므로!! 
+    print('\t\t\t %d년 %d월'%(year,month))
+    print('Sun\tMon\tTue\tWed\tThr\tFri\tSat')
+    for i in range(space):
+        print('\t',end='')
+    for i in range(lastDay):
+        print('%d\t'%(i+1),end='') 
+        if (i+1+space)%7==0:
+            print() 
+    print()
+    return
+    
+    
+month = input('월 입력 >>> ')
+year = input('년 입력 >>> ')
+viewMonth(int(year),int(month))
+import mycal
+_year = input('년 입력 >>> ')
+year = int(_year)
+_month =input('월 입력 >>> ')
+month = int(_month)
+mycal.viewMonth(year,month)
+"""
+"""
+info = 'kim12365100 89 87' #하나의 라인에 여러개의 정보를 합쳐서 입력/처리는 나눠서
+print(info[0:3])
+print(info[:3])
+print(info[3:8])
+print(info[8:11])
+print(info[11:14])
+print(info[14:])
+
+print()
+
+data = [1,2,3,4,5]
+print(data[:2])
+print(data[::-1]) #간편한 방법이어유 
+
+print()
+
+infov2 = 'kim,12365,100,89,87'
+r = infov2.split(",") #~.split(*) ~를 *로 구분해라 
+print(r)
+
+for item in r:
+    print(item) #list로 분리
+    
+list2list = [
+        [1,2,4,6,8],
+        [2,4,16,27,81]
+        ]
+print(len(list2list))
+print(len(list2list[0]))
+print(len(list2list[1]))
+print((list2list[1][2]))
+
+print()
+
+grades = {"Joel":['1254',80,20,90],"Tim":['2314',87,95,95]}
+print(grades["Joel"])
+#try~except 구문 사용 방법
+try:
+   joe_grade = print(grades["Joe"])
+except KeyError:
+    print("no grade for Joe")
+joe_grade = print(grades["Joel"])
+
+print(joe_grade)
+
+print(grades.keys())
+print(grades.values())
+
+names = grades.keys()
+for name in names:
+    print('key=%s,value=%s'%(name,grades[name]))
+    
+    
+"""
+
+s = set([1,2,2,3,4])
+print(len(s)) #어! 왜 5가아니고??? 
+print(s) #왜나하면 set는 중복을 허락하지 않아
+print(list(s)) #set을 사용하면 중복체크에 아주 유용하다. 특히 야구게임!
+
+print()
+
+s1 = set([1,2,3,4])
+s2 = set([3,4,5,6])
+print(s1.intersection(s2)) #교집합
+print(s1.union(s2)) #합집합
+print(s1.difference(s2)) #차집합
+
+#집합의 성질을 사용함녀 복잡한 것을 쉽게 계산할 수도 있다.
+print(s1 & s2)
+print(s1 | s2)
+print(s1 - s2)
+
+import calendar
+def viewMonth(year,_month):
+    #result = calendar.monthrange(2017,_month) 2017이 hardcoding
+    result = calendar.monthrange(year,_month)
+    #spaces = [0,3,3,6,1,4,5,2,5,0,3,5]
+    #lastDays = [31,28,31,30,31,30,31,31,30,31,30,31]
+    #space = spaces[_month-1] #사용자 입장에서 봐야합니다!! 보정 하나가 퀄리티 결정
+    space = result[0]+1 #+1 중요!!!
+    month = _month
+    lastDay = result[1]
+    #lastDay = lastDays[_month-1] #0부터 인덱스가 시작하므로!! 
+    print('\t\t\t %d년 %d월'%(year,month))
+    print('Sun\tMon\tTue\tWed\tThr\tFri\tSat')
+    for i in range(space):
+        print('\t',end='')
+    for i in range(lastDay):
+        print('%d\t'%(i+1),end='') 
+        if (i+1+space)%7==0:
+            print() 
+    print()
+    return
