@@ -1,0 +1,54 @@
+#함수 만들기
+""" 
+일을 처리하는 기본 단위
+-함수이름 : 처리하는 일을 잘 표현하는 동사형의 영단어
+-추가정보 : 파라메터 -> () 괄호안에 변수를 적는 방식
+-결과 : 리턴여부 -> return 실제값을 뒤에서 적는 방식
+-제일 앞에 def 키워드를 붙인다. 
+-ex)두 정수를 입력받아 합을 구한 후 리턴하는 함수 작성
+"""
+"""
+def testsum(num1,num2): #parameter -> () 파라메타를 통해서 외부로 받오옴!!
+    temp = num1 + num2
+    return temp
+
+result = testsum(8,8) #argument -> () 아규먼트는 얼마든지 변경이가능해요~!
+print(result)
+
+input1 = input('첫수 >> ')
+input2 = input('두번째 수 >> ')
+result = testsum(int(input1),int(input2))
+print(result)
+"""
+#ex)소수 판별 함수 작성
+#이름결정(isPrimeNumber) -> 파라메터결정(하나의 수) -> return형식 결정(논리형)
+"""
+def isPrimeNumber(number):
+    flag = False
+    count = 0 #판별로직
+    for i in range(number):
+        if number%(i+1)==0:
+            count = count + 1
+        if(count==2):
+            True
+        else :
+            False
+    return flag
+"""
+def isPrimeNumber(number):
+    flag = False
+    count = 0
+    for i in range(number): #(1,number+1)로 선언해도 됨!
+        if number%(i+1)==0: #i가 0부터 시작되기 때문에
+            count = count + 1
+    if count==2:
+        flag = True
+    
+    return flag
+"""
+string = '1'
+result = string.isdigit()  #바로 앞의 스트링이 숫자냐 묻는 
+print(result)
+"""
+result = isPrimeNumber(8) #현재 함수를 사용할 수 있지만 무조건 False겠지!
+print(result)
