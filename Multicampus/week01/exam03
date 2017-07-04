@@ -1,0 +1,131 @@
+for i in range(10):
+    print(i)
+for i in range(20):
+    print(i)
+for i in range(1,21): #1부터 20까지 반복, 좋은 방법은 아닙니다.
+    print(i)
+
+number = 123456
+for i in range(6):
+    temp = number%10
+    print(temp)
+    number = number//10
+    print('end') #for에 종속되어 있다.
+    
+number = 123456
+for i in range(6):
+    temp = number%10
+    print(temp)
+    number = number//10
+
+print('end') #for가 끝난다음에 
+#20~23 1set, 들여쓰기로 중괄호를 대신한다.
+
+number = 123456
+sum = 0
+for i in range(6):
+    temp = number%10
+    sum = sum + temp
+    print(temp)
+    number = number//10
+
+print('sum => ', sum)
+
+number = 123456
+for i in range(6):
+    sum = 0
+    temp = number%10
+    sum = sum + temp
+    print(temp)
+    number = number//10
+
+print('sum => ', sum) #sum을 for안에,계속 0으로 셋팅, 마지막에 1을 더한것이 출력
+
+#한꺼번에 주석처리 """           """
+
+
+#반복문의 가장 일반적인 모습
+"""
+print('2X1=2')
+print('2X2=4')
+print('2X3=6')
+print('2X4=8')
+print('2X5=10')
+print('2X6=12')
+print('2X7=14')
+print('2X8=16')
+print('2X9=18') #규칙을 가지고 증가하면 그것도 반복이라한다
+"""
+"""
+for i in range(1,10): #1~10까지를 쓰겠다, 좋지 않은 표현입니다. 
+    print('2','x',i,'=',2*i)
+
+for i in range(9):
+    print('2x',end='')
+    print(i+1,end='')
+    print('=',end='')
+    print(2*(i+1)) #곱하고 해야하니까 ()로 우선순위 높이기
+"""
+
+#문자열 안에 변화하는 변수값을 사용해서 출력할 때,%d => 실수 f, 정수 d, 문자 S
+"""
+for i in range(9): #range() 괄호안의 숫자는 횟수 !!!
+    print('2x%d=%d'%(i+1,2*(i+1))) #%d를사용해서 한줄에, 순서대로 써야한다.%()
+
+for i in range(9):
+     print('2x%d=%2d'%(i+1,2*(i+1)))
+     
+for i in range(9):
+     print('2x%d=%3d'%(i+1,2*(i+1))) #포멧이 바뀜 숫자의 크기에 따라서
+print()
+
+for number in range(8):  #2부터 시작이니까 8번이에용
+    number = number+2 #0에 2를 더하고 시작해야해용
+    for i in range(9):
+        print('%dx%d=%3d'%(number,i+1,number*(i+1)))
+        
+
+for j in range(8):
+    number = j + 2     #2-9까지 반복한다. 
+    for i in range(9): #2-9까지 반복하는데, 여기서 그 숫자들을 9번 반복하면서 곱
+        print('%dx%d=%3d'%(number,i+1,number*(i+1)))
+    print()  #단만다 줄바꿈
+"""
+
+for j in range(8):
+    number = j + 2
+    for i in range(9):
+        print('%dx%d=%3d'%(number,i+1,number*(i+1)))
+    print()
+"""  
+professor's interpretation :
+8번 반복해라, j = 현재 몇번째 반복인지 나타냄
+number = 현재 반복 횟수 + 2
+9번 반복해라 
+첫번째 반복횟수 곱해지는 수로하고, 두번째 반복횟수를 곱하는 수로해서 
+해당하는 단의 결과를 출력한다
+한 단이 끝나면 한 줄을 뛰운다
+===============================================================================
+8번을 반복하는데, 3단계의 순서를 거친다.
+2를 더해서 해당하는 단을 생성하고,
+해당하는 단에 대해서 1부터 9까지 곱해지는 수를 만들고 결과를 출력한다.
+한줄을 뛰운다
+"""  
+for j in range(9):
+    number = j + 1
+    for i in range(9):
+        print('%dX%d=%2d'%(i+1,number,number*(i+1)),end=' ')
+    print()
+"""
+9번 반복해라. 3단계의 순서를 거친다.
+1을 더해서 단을 늘려준다
+여러 단을 1부터 곱해준다 
+"""
+print()
+
+for j in range(9):
+    number = j + 1
+    for i in range(9):
+        print('%dX%d=%2d'%(number,i+1,number*(i+1)),end=' ')
+    print()
+    
