@@ -1,0 +1,9 @@
+#출력 - print()  사용익히기
+print('Hello world!') 
+print('Welcome')
+print('Hello world!',end=' ') #붙여나오게 하고 싶을때
+print('Welcome')
+print('Hello world!',end='t') #t를 붙이면   
+print('Welcome')
+print('Hello world!',end='\t') #\를 붙이면 중간에 공간이 생김
+print('Welcome')
