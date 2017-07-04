@@ -1,0 +1,51 @@
+#반복문 for/while
+#그냥 숫자의 자리수를 하나씩 줄여가는 것으로 가능하다.
+number = number//10
+print(number%10) #이렇게 반복하면됩니다. 이렇게하면 중복이 생기는데 중복제거는 반복문사용
+
+#자리수가 6자리로 고정되어 있다.  -> 개선점!!!!, 자리수를 자동으로 감지하는 것이 필요
+#몇번반복해야할지 모를 때, while 반복문을 사용하면 됩니당~
+
+number = 123456
+sum = 0
+for i in range(6):
+    temp = number%10
+    sum = sum + temp
+    print(temp)
+    number = number//10
+
+print('sum => ', sum) 
+
+#무한 반복 -> While 반복이 확정되면 while문을 쓸 필요없어용 그래서 아래의 형태가 맞음
+#어떤 조건이 되면 break해라!!
+"""
+while True:
+    if      :
+        break -> 반복문을 빠져나갈 때 사용하는 키워드 
+"""
+number = 123456
+while True:
+    temp = number%10
+    print(temp)
+    number = number//10
+    if number == 0:
+        break
+
+number = 1234
+while True:
+    temp = number%10
+    print(temp)
+    number = number//10
+    if number == 0:
+        break
+#개수에 관계없이 처리가능하다!!!!!!!!!!
+print()
+number = 123456
+sum = 0
+while True :
+    temp = number%10
+    sum = sum + temp
+    number =number//10
+    if number == 0 :
+        break
+print('sum = ',sum)
