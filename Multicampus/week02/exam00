@@ -1,1 +1,232 @@
-base
+print("week2")
+a = [1,36,13] #리스트는 대괄호
+print(a)
+print(type(a))
+b = (1,2,3)
+print(b) #튜플은 소괄호
+print(type(b))
+a[0] = 10
+print(a) #값이 수정
+#b[0] = 100
+#print(b) #튜플은 리스트와 동일한데, 수정을 지원하지 않는다. -> 읽기전용(read only)
+
+for item in a: #굳이 세번째 방법을 사용할 필요가 없다.
+    print(item) #데이터만 꺼내짐
+    
+for i in range(3):
+    print(i)
+    
+for i in range(3): 
+    print(a[i])
+#인덱스를 붙이고 싶으면...
+for i in range(3): #a의 크기를 자동으로 받아오면 됨
+    print('%d => %d'%(i,a[i]))
+
+for i in range(len(a)): 
+    print('%d => %d'%(i,a[i])) #인덱스도 같이 출력하고 싶어!
+#enumerate를 사용해서 두가지(index,값)를 출력할 수 있다.
+for i,item in enumerate(a): #i, item은 변수! 
+    print('%d => %d'%(i,item))
+    
+for i,j in enumerate(a): 
+    print('%d => %d'%(i,j))
+    
+import random #0.0=<r<1.0
+rnd = random.random()
+print(rnd)
+
+import random
+rnd = random.random()
+temp = int(rnd*45)+1 #1.0=<r<46.0
+print(temp) #1~45까지 출력 => 로또!!!
+
+import random
+rnd = random.random()
+temp = int(rnd*100)+1 #1.0=<r<100.0
+print(temp)
+
+#100~999의 세자리의 수를 임의로 만들어내는 식을 세워보자
+import random
+rnd = random.random()
+temp = int(rnd*900)+100
+print(temp)
+
+#한자리수, 두자리수, 세자리수를 자동으로 해당되는 범위에서 임의 수 출력 -> 함수생성
+#요청에 따라 임의의 수를 생성하는 함수를 만드시오
+#요청은 100~999,1000~9999,10000~99999 세가지가 올 수 있다.
+#제곱을 나타내는 표현은 **
+"""
+def makeNumber(n):
+    n = [3,4,5]
+    number = int(random.random()*9*10**(n[i]-1))+10**(n[i]-1)
+    print(temp)
+    return number
+print(makeNumber())
+"""
+def makeNumber(num):
+    number = int(random.random()*(10**num-10**(num-1)))+10**(num-1)
+    print(temp)
+    return number
+
+result = makeNumber(3)
+print('result = %d'%result)
+
+"""
+과제 <야구게임>
+중복되지 않는 3자리수를 생성한다.
+사용자는 중복되지 않는 임의의 3자리수를 입력한다.
+생성된 수와 입력할 수 를 비교하여 
+-숫자가 같고 자릿수가 틀리면 ball
+-숫자가 같고 자릿수가 같으면 strike
+비교 결과가 3strike이면 종료되는 코드를 작성하시오
+"""
+"""
+<전체의 흐름>
+숫자를 생성한다. (숫자 생성, 체크, 중복판별)
+|
+예상 숫자를 입력한다. (반복)
+|
+생성 숫자와 예상숫자를 비교한다.(반복)
+|
+3자리 수를 모두 맞추면 종료한다.
+"""
+"""
+조별로 과제 한거 잘안되네요.. 
+import random
+a=[]
+while True:
+    rnd = random.random()
+    temp = int(rnd*10)
+    if temp in a :
+        continue
+    a.append(int(temp))
+    if len(a) == 3:
+        break
+print(a)
+
+while True:
+    b=[]
+    num1=input('첫째자리 : ')
+    num2=input('둘째자리 : ')
+    num3=input('셋째자리 : ')
+    b.append(num1)
+    b.append(num2)
+    b.append(num3)
+    strike = 0
+    ball = 0
+    for j in range(3):
+        for i in range(3):
+            if (a[j] == b[i]) and (i==j):
+                strike = strike + 1
+            elif (a[j] == b[i]) and (i!=j):
+                ball = ball + 1
+if strike == 3 :
+    print("맞추셨습니다.")
+    break
+else :
+    print('%dstrkie %dball'%(strike,ball))
+    print('다시 입력해주세요')
+"""
+#교수님
+
+"""
+def makeNumber(num):
+    number = int(random.random()*(10**num-10**(num-1)))+10**(num-1)
+    print(temp)
+    return number
+seed = input('자릿수를 입력하세요 >>> ')
+print(type(seed))
+result = makeNumber(int(seed))
+print('result = %d'%result)
+"""
+for item in '123':
+    print(item)
+
+"""
+사용자로부터 입력 - input
+중복제거 로직
+-각 자리수가 다른 자릿수의 수와 같은지 비교
+관리 로직 흐름
+"""
+"""
+import random
+def makeNumber(num):
+    number = int(random.random()*(10**num-10**(num-1)))+10**(num-1)
+    return str(number)
+
+def isSameNumber(strNumber):
+    flag = False
+    for item in strNumber:
+        if item in strNumber:
+            flag = True
+            break
+    
+    return flag
+
+if isSameNumber('789'):
+    print('중복')
+else :
+    print('중복아님')
+
+templist = list('123')
+print(templist)
+"""
+#<야구게임>
+import random
+def makeNumber(num):
+    number = int(random.random()*(10**num-10**(num-1)))+10**(num-1)
+    while True:
+        check = isSameNumber(number):
+        
+         #  if  check:
+         #   continue
+        #else :
+        #    break #아래와 같은 경우 if~else = if not
+        if not check: 
+            break
+        
+    return str(number)
+
+def isSameNumber(strNumber):
+    flag = False
+    for item in strNumber:
+        if item in strNumber:
+            flag = True
+            break
+    
+    return flag
+
+def compareNumber(targetNumber,guessNumber):
+    strike = 0
+    ball = 0
+    #처리 로직
+    return strike
+#-------------------------------------------------------------------------    
+targetNumber = makeNumber(3)
+while True:
+    guessNumber = 0
+    while True:
+        guessNumber = input('자릿수를 입력하세요 >>> ')
+        check = isSameNumber(seed)
+        if not check:
+            break
+    #판별로직 호출
+    result = compareNumber(targetNumber,guessNumber)
+    
+    #결과처리
+    if reult == 3:
+        print('정답입니다')
+    else :
+        print('다시 도전')
+ 
+#-----------------------------------------------------------------------
+    
+    
+    
+    if isSameNumber('789'):
+        print('중복')
+    else :
+        print('중복아님')
+
+templist = list('123')
+print(templist)
