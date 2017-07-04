@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jun 30 09:05:13 2017
-
-@author: user
-"""
-""" My result
 #1부터 10까지 출력
 for i in range(10):
     print(i+1)
@@ -23,8 +16,7 @@ for i in range(1):
         print(number)
     if((number)%2==1):
         print(number)
-"""
-"""
+
 #professor's result
 for i in range(1,11):
     if i%2==0:
@@ -37,12 +29,12 @@ for i in range(1,11):
         print('%d is even'%i)
     else:
         print('%d is odd'%i)
-"""
+
 #두개 이상의 조건이 있는!!
 #예를 들어 윤년 : 4로 나누어 떨어지고 동시에, 100으로 나누어 떨어지면 -> 조건연산자
 #and연산자 -> 둘이 만족되야할 때!! 조건 사이에 and 를 써주면 된다 
 #or연산자 -> 둘 중에 하나만 만족하면 참일 때!!
-"""
+
 year = 2016
 if year%4==0 and year%100==0 :
     print('leap year')
@@ -54,9 +46,7 @@ if (year%4==0 and year%100==0) or (year%400==0):
     print('leap year')
 else :
     print('general year')
-"""
 
-"""
 #먼저 간단하게 생각해보기
 number = 5
 count = 0
