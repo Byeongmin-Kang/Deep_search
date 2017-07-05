@@ -37,3 +37,9 @@ for i in position_index:
     else :
         print('없음')
         
+temp_list = [1,2,1,3]
+temp_list.remove(1) #value
+print(temp_list)
+del temp_list #index
+print(temp_list)
+        
