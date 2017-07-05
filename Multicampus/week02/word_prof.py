@@ -42,4 +42,3 @@ temp_list.remove(1) #value
 print(temp_list)
 del temp_list #index
 print(temp_list)
-        
